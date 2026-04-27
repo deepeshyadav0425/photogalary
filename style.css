@@ -1,0 +1,145 @@
+:root {
+    --bg: #050505;
+    --accent: #fff;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* --- Curtain Landing Page --- */
+.curtain {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); /* Curtain motion */
+}
+
+/* Class to trigger animation */
+.curtain.lifted {
+    transform: translateY(-100%);
+}
+
+.aura-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(5rem, 15vw, 12rem);
+    letter-spacing: -5px;
+    background: linear-gradient(#fff, #444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0;
+}
+
+.hero-tagline {
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    font-weight: 200;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.explore-btn {
+    all: unset;
+    padding: 18px 50px;
+    border: 1px solid white;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    transition: 0.4s;
+}
+
+.explore-btn:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 0 30px rgba(255,255,255,0.2);
+}
+
+/* --- Gallery Grid --- */
+/* Update these sections in your style.css */
+
+.dynamic-grid {
+    display: grid;
+    /* Reduced min-width from 400px to 250px for a denser feel */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px; /* Tighter gaps */
+    padding: 10px;
+}
+
+.img-card {
+    height: 350px; /* Reduced height to fit more on screen */
+    overflow: hidden;
+    cursor: zoom-in;
+    background: #111;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.img-card.visible { opacity: 1; transform: translateY(0); }
+
+.img-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+    transition: 1s;
+}
+
+.img-card:hover img { filter: brightness(1); transform: scale(1.05); }
+
+/* --- Fullscreen Modal --- */
+.modal {
+    display: none; position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.98); z-index: 4000;
+    justify-content: center; align-items: center;
+}
+/* Hide modal image by default until loaded */
+#full-image {
+    display: none;
+}
+
+/* The Spinner Animation */
+.loader {
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Ensure the modal is centered */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 4000;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content { max-width: 90%; max-height: 90%; animation: zoom 0.4s; }
+
+.close-modal { position: absolute; top: 20px; right: 30px; font-size: 40px; cursor: pointer; }
+
+@keyframes zoom { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }

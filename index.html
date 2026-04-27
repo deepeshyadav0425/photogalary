@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura | Visual Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@200;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="landing-curtain" class="curtain">
+        <div class="hero-content">
+            <h1 class="aura-logo">AURA</h1>
+            <p class="hero-tagline">Enter the sanctuary of light</p>
+            <button id="explore-btn" class="explore-btn">Explore</button>
+        </div>
+    </div>
+
+    <main class="gallery-wrapper">
+        <div id="photo-grid" class="dynamic-grid"></div>
+    </main>
+
+    <div id="image-modal" class="modal">
+        <span class="close-modal">&times;</span>
+         <div class="loader" id="modal-loader"></div>
+        <img class="modal-content" id="full-image">
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
